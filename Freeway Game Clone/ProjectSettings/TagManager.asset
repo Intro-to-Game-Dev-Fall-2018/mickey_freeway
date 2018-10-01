@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - Right Boundary
+  - Left Boundary
+  - Background
+  - Blue Enemy Left
+  - Average Speed
+  - Average Neg Speed
+  - Fast Speed
+  - Fast Neg Speed
+  - Fastest Speed
+  - Fastest Neg Speed
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 2744711601
+    locked: 0
+  - name: Enemy
+    uniqueID: 3191714151
+    locked: 0
