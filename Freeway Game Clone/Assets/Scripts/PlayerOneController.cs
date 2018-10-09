@@ -6,16 +6,20 @@ public class PlayerOneController : MonoBehaviour
 {
 
 	public float speed;
+	private float verticalOne;
 	public Text playerOneScore;
 	private Rigidbody2D player;
 	private Vector2 startPositionOne;
 	private Vector2 moveOne;
 	private int countScoreOne;
+	public AudioSource pointSound;
+	public AudioSource hitSound;
 	
 	void Start()
 	{
 
 		player = GetComponent<Rigidbody2D>();
+		speed = .05f; 
 		startPositionOne = gameObject.transform.position;
 		countScoreOne = 0;
 		playerOneScore.text = countScoreOne.ToString();
@@ -35,12 +39,14 @@ public class PlayerOneController : MonoBehaviour
 		    other.gameObject.CompareTag("Fast Speed") || other.gameObject.CompareTag("Fast Neg Speed") ||
 		    other.gameObject.CompareTag("Fastest Speed") || other.gameObject.CompareTag("Fastest Neg Speed"))
 		{
+			hitSound.Play();
 			transform.position = startPositionOne;
 			Debug.Log("Hit Enemy");
 		}
 
 		if (other.gameObject.CompareTag("Background"))
 		{
+			pointSound.Play();
 			countScoreOne += 1;
 			SetCountText();
 			transform.position = startPositionOne;
@@ -50,10 +56,9 @@ public class PlayerOneController : MonoBehaviour
 
 	void playerOneMove()
 	{
-		float verticalOne = Input.GetAxis("VerticalOne");
+		verticalOne = Input.GetAxis("VerticalOne");
 		moveOne = new Vector2(0, verticalOne);
-//		player.AddForce(moveOne * speed);
-		player.MovePosition(player.position + moveOne * Time.fixedDeltaTime);
+		player.MovePosition(player.position + moveOne * speed);
 		
 		
 	}
@@ -61,9 +66,6 @@ public class PlayerOneController : MonoBehaviour
 	void SetCountText()
 	{
 		playerOneScore.text = countScoreOne.ToString();
-		if (countScoreOne >= 5)
-		{
-			Time.timeScale = 0;
-		}
+		
 	}
 }

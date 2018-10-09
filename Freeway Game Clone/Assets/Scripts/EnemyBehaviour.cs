@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-//this should be a prefab for all the enemy cars
+//this should be on the enemy prefab
 
 public class EnemyBehaviour : MonoBehaviour
 {
@@ -11,8 +11,8 @@ public class EnemyBehaviour : MonoBehaviour
 	{
 
 		SpeedChange(); 
-		restartLeft = new Vector2(-6.84f, gameObject.transform.position.y);
-		restartRight = new Vector2(6.84f, gameObject.transform.position.y);
+		restartLeft = new Vector2(-10.83f, gameObject.transform.position.y);
+		restartRight = new Vector2(10.83f, gameObject.transform.position.y);
 
 	} 
 
@@ -20,7 +20,6 @@ public class EnemyBehaviour : MonoBehaviour
 	{
 		
 		transform.Translate(enemySpeed, 0, 0);
-		//transform.Translate(otherEnemySpeed, 0, 0);
 		
 
 	}
@@ -42,7 +41,6 @@ public class EnemyBehaviour : MonoBehaviour
 	void SpeedChange()
 	{
 
-		//enemySpeed = 0.5f; //temporary!
 		if (gameObject.CompareTag("Average Speed"))
 		{
 			enemySpeed = .05f;
@@ -67,8 +65,6 @@ public class EnemyBehaviour : MonoBehaviour
 			enemySpeed = -.095f;
 		}
 		
-		//tagging them by type isn't all that elegant when it comes to getting the chickens to collide, so what's a better way? 
-
 	}
 
 }
